@@ -44,8 +44,8 @@ Neste momento, a API implementa apenas o endpoint relacionado às **temporadas d
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/formula1-api.git
-   cd formula1-api
+   git clone https://github.com/pablosilvamachado/ErgastF1ApiServiceCache.git
+   cd ErgastF1ApiServiceCache
    ```
 
 2. **Configure o Redis:**
