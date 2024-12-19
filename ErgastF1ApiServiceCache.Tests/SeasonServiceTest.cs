@@ -37,11 +37,23 @@ namespace ErgastF1ApiServiceCache.Tests
 
             var provider = service.BuildServiceProvider();
             _seasonService = provider.GetService<ISeasonService?>();
+
+            _mockDatabase = new Mock<IDatabase>();
+            _mockHttpClientFactory = new Mock<IHttpClientFactory>();
+
+            var redisMock = new Mock<IConnectionMultiplexer>();
+            redisMock.Setup(x => x.GetDatabase(It.IsAny<int>(), It.IsAny<object>())).Returns(_mockDatabase.Object);
+
+            var httpClient = new HttpClient
+            {
+                BaseAddress = new Uri("http://api.jolpi.ca/ergast/f1")
+            };
+            _mockHttpClientFactory.Setup(x => x.CreateClient(It.IsAny<string>())).Returns(httpClient);
+
         }
-           
 
         [Fact]
-        public async Task GetSeasons_ShouldReturnSeasons_WhenCacheMiss2()
+        public async Task GetSeasons_ShouldReturnSeasons_WhenCacheMiss()
         {
             // Arrange
             string cacheKey = "seasons";
@@ -51,13 +63,13 @@ namespace ErgastF1ApiServiceCache.Tests
             var mockHttpResponse = new HttpResponseMessage
             {
                 StatusCode = System.Net.HttpStatusCode.OK,
-                Content = new StringContent("{ \"MRData\": { \"SeasonTable\": { \"Seasons\": [{ \"season\": \"1950\", \"url\": \"http://example.com\" }] } } }")
+                Content = new StringContent("{ \"MRData\": { \"SeasonTable\": { \"Seasons\": [{ \"season\": \"1950\", \"url\": \"http://en.wikipedia.org/wiki/1950_Formula_One_season\" }] } } }")
             };
 
             var mockHttpMessageHandler = new MockHttpMessageHandler(mockHttpResponse);
             var httpClient = new HttpClient(mockHttpMessageHandler)
             {
-                BaseAddress = new Uri("http://api.jolpi.ca/ergast/f1")
+                BaseAddress = new Uri("http://api.jolpi.ca/ergast/f1/seasons")
             };
             _mockHttpClientFactory.Setup(x => x.CreateClient(It.IsAny<string>())).Returns(httpClient);
 
