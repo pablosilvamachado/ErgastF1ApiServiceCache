@@ -1,0 +1,6 @@
+@ErgastF1ApiServiceCache.Presentation_HostAddress = http://localhost:5248
+
+GET {{ErgastF1ApiServiceCache.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
