@@ -23,7 +23,7 @@ Neste momento, a API implementa apenas o endpoint relacionado às **temporadas d
 
 ## Tecnologias Utilizadas
 
-- **.NET 6**
+- **.NET 8**
 - **Redis**
 - **Clean Architecture**
 - **SOLID**
@@ -36,7 +36,7 @@ Neste momento, a API implementa apenas o endpoint relacionado às **temporadas d
 
 ### Requisitos
 
-- [.NET 6 SDK](https://dotnet.microsoft.com/download)
+- [.NET 8 SDK](https://dotnet.microsoft.com/download)
 - [Redis](https://redis.io/download)
 - Ferramenta de linha de comando para executar o Redis (ex.: `docker`, `redis-cli`).
 
