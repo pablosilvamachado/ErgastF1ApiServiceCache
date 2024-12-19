@@ -1,4 +1,4 @@
-# Ergast# Formula 1 API - Temporadas (Seasons)
+# Formula 1 API 
 
 Bem-vindo ao repositório da **Formula 1 API**, uma ferramenta pensada para desenvolvedores e entusiastas da Fórmula 1 que buscam explorar dados históricos de maneira simples e organizada. Este projeto tem como foco o estudo e a implementação de conceitos de cache com Redis, bem como a aplicação de padrões de arquitetura limpa (Clean Architecture), SOLID e DDD (Domain-Driven Design).
 
