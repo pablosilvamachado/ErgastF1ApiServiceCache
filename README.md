@@ -15,7 +15,7 @@ Neste momento, a API implementa apenas o endpoint relacionado às **temporadas d
 - **Endpoint Atual:**
   - `/seasons`: Retorna uma lista de temporadas históricas da Fórmula 1.
 - **Cache com Redis:**
-  - Redução de chamadas repetitivas ao serviço externo, armazenando os resultados em cache por uma hora.
+  - Redução de chamadas repetitivas ao serviço externo, armazenando os resultados em cache.
 - **Clean Architecture:**
   - A lógica de negócio é separada em camadas, garantindo manutenção e expansão fáceis.
 
