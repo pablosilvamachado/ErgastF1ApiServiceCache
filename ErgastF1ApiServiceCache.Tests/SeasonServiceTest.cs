@@ -41,7 +41,7 @@ namespace ErgastF1ApiServiceCache.Tests
            
 
         [Fact]
-        public async Task GetSeasons_ShouldReturnSeasons_WhenCacheMiss2()
+        public async Task GetSeasons_ShouldReturnSeasons_WhenCacheMiss()
         {
             // Arrange
             string cacheKey = "seasons";
@@ -62,7 +62,7 @@ namespace ErgastF1ApiServiceCache.Tests
             _mockHttpClientFactory.Setup(x => x.CreateClient(It.IsAny<string>())).Returns(httpClient);
 
             // Act
-            var result = await _seasonService.GetSeasonsAsync();
+            var result = await _seasonService.GetAsync();
 
             // Assert
             Assert.NotNull(result);

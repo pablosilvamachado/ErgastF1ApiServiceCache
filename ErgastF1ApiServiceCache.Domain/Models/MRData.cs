@@ -10,7 +10,9 @@ namespace ErgastF1ApiServiceCache.Domain.Models
     public class MRData
     {
         public string Series { get; set; }
-        public string Total { get; set; }       
+        public string Total { get; set; }  
+        
         public SeasonTable SeasonTable { get; set; }
+        public CircuitTable CircuitTable { get; set; }
     }       
 }

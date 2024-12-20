@@ -1,30 +1,31 @@
 ﻿using ErgastF1ApiServiceCache.Application.Interfaces;
 using ErgastF1ApiServiceCache.Domain.Entities;
-using ErgastF1ApiServiceCache.Domain.Interfaces;
-using ErgastF1ApiServiceCache.Domain.Models;
-using System.Text.Json;
-using System.Configuration;
 using ErgastF1ApiServiceCache.Domain.Interfaces.Repositories;
-
+using ErgastF1ApiServiceCache.Domain.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ErgastF1ApiServiceCache.Application.Services
 {
-    public class SeasonService : ISeasonService
+    public class CircuitsService : ICircuitService
     {
         private readonly ICacheService _cacheService;
-        private readonly ISeasonRepository _repository;
+        private readonly ICircuitRepository _repository;
 
-        public SeasonService(ICacheService cacheService, ISeasonRepository repository)
+        public CircuitsService(ICacheService cacheService, ICircuitRepository repository)
         {
             _cacheService = cacheService;
             _repository = repository;
         }
 
-        public async Task<List<Season>> GetAsync()
+        public async Task<List<Circuit>> GetAsync()
         {
-            string cacheKey = "seasons";
+            string cacheKey = "circuits";
 
-            var cached = await _cacheService.GetAsync<List<Season>>(cacheKey);
+            var cached = await _cacheService.GetAsync<List<Circuit>>(cacheKey);
             if (cached != null)
             {
                 return cached;
@@ -34,6 +35,6 @@ namespace ErgastF1ApiServiceCache.Application.Services
             await _cacheService.SetAsync(cacheKey, seasons, TimeSpan.FromHours(1));
 
             return seasons;
-        }      
+        }
     }
 }

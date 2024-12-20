@@ -4,6 +4,6 @@ namespace ErgastF1ApiServiceCache.Application.Interfaces
 {
     public interface ISeasonService
     {
-        Task<List<Season>> GetSeasonsAsync();
+        Task<List<Season>> GetAsync();
     }
 }

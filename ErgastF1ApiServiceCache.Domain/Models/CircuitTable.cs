@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ErgastF1ApiServiceCache.Domain.Interfaces.Repositories
+namespace ErgastF1ApiServiceCache.Domain.Models
 {
-    public interface ISeasonRepository
+    public class CircuitTable
     {
-        Task<List<Season>> GetAsync();
+        public List<Circuit> Circuits { get; set; }
     }
 }

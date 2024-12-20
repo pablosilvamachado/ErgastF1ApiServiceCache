@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ErgastF1ApiServiceCache.Domain.Interfaces.Repositories
 {
-    public interface ISeasonRepository
+    public interface ICircuitRepository
     {
-        Task<List<Season>> GetAsync();
+        Task<List<Circuit>> GetAsync();
     }
 }

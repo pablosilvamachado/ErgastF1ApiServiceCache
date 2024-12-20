@@ -17,7 +17,7 @@ namespace ErgastF1ApiServiceCache.Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetSeasons()
         {
-            var seasons = await _seasonService.GetSeasonsAsync();
+            var seasons = await _seasonService.GetAsync();
             return Ok(seasons);
         }
     }

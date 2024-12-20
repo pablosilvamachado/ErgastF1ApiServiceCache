@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ErgastF1ApiServiceCache.Domain.Interfaces.Repositories
+namespace ErgastF1ApiServiceCache.Application.Interfaces
 {
-    public interface ISeasonRepository
+    public interface ICircuitService
     {
-        Task<List<Season>> GetAsync();
+        Task<List<Circuit>> GetAsync();
     }
 }

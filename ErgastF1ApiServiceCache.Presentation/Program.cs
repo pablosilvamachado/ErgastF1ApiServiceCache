@@ -24,8 +24,12 @@ builder.Services.AddHttpClient();
 
 // Serviços
 builder.Services.AddSingleton<ICacheService, RedisCacheService>();
+
 builder.Services.AddScoped<ISeasonService, SeasonService>();
 builder.Services.AddScoped<ISeasonRepository, SeasonRepository>();
+
+builder.Services.AddScoped<ICircuitService, CircuitsService>();
+builder.Services.AddScoped<ICircuitRepository, CircuitRepository>();
 
 // Controllers
 builder.Services.AddControllers();
@@ -39,15 +43,14 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API para obter dados relacionados à Fórmula 1, atualmente suportando Seasons.",
         Contact = new OpenApiContact
         {
-            Name = "Pablo da Silva mMachado",
+            Name = "Pablo da Silva Machado",
             Email = "pablosilvamachado@hotmail.com",
             Url = new Uri("https://github.com/pablosilvamachado")
         }
     });
 });
 
-
-string[] origens = ["http://localhost:4200", "https://localhost:4200", "http://localhost:8080", "http://localhost:8081", "http://localhost:5248"];
+string[] origens = ["http://localhost:5248"];
 
 builder.Services.AddCors(
                 options => options.AddPolicy(
@@ -61,7 +64,6 @@ builder.Services.AddCors(
             );
 
 var app = builder.Build();
-
 
 // Configura o middleware do Swagger
 if (app.Environment.IsDevelopment())
